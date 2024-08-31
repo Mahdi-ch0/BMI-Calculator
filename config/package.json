@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "tailwindcss": "^3.4.10"
+  },
+  "name": "config",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc -w",
+    "tailwind": "npx tailwindcss -i ../frontend/src/style/config/input.css -o ../frontend/src/style/style/style.css -w",
+    "output": "node --watch ../frontend/src/script/ts/home/script.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "ES6",
+        "strict": true,
+        "outDir": "../frontend/src/script/js",
+        "rootDir": "../frontend/src/script/ts",
+        "target": "ES6",
+    },
+    "include": [
+        "../frontend/src/script/ts/**/*.ts"
+    ],
+    "exclude": [
+        "../frontend/src/script/js/**/*"
+    ]
+}
