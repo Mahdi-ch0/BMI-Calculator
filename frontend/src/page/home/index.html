@@ -1,14 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../../../public/ico/favicon-512x512.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../style/style/style.css">
-    <script type="module" src="../../script/js/home/scirpt.js"></script>
-    <title>BMI Calculator</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="shortcut icon"
+            href="../../../public/ico/favicon-512x512.png"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="../../style/style/style.css" />
+        <script type="module" src="../../script/js/home/bmiCalculator.js"></script>
+        <script type="module" src="../../script/js/home/screen.js"></script>
+        <script type="module" src="../../script/js/home/alerts.js"></script>
+        <title>BMI Calculator</title>
+    </head>
+    <body class="bg-slate-200">
+        
+        <div
+            class="tooltip-information hidden flex visible fixed bottom-3 left-1/2 z-50 px-3 py-1 rounded-xl justify-center items-center space-x-1 bg-white dark:bg-gray-700 border border-black dark:border-none opacity-1 shadow-sm transform -translate-x-1/2"
+        >
+            <img
+                src="../../../public/svg/information/error.svg"
+                alt="ico information"
+                class="h-11"
+            />
+            <p
+                role="try information"
+                class="try-information text-lg font-bold text-black dark:text-white"
+            >
+                information
+            </p>
+        </div>
+        <div class="cover-display hidden absolute h-full w-full bg-slate-400 opacity-65 z-10"></div>
+        <div class="h-screen w-screen flex justify-center m-auto py-12 px-7">
+            <div
+                class="card felx w-[30rem] h-96 px-4 space-y-5 rounded-md overflow-hidden bg-white"
+            >
+                <div class="card-container px-2 py-3">
+                    <header class="bmi-header flex justify-between px-2">
+                        <div class="flex items-center gap-x-1">
+                            <p class="title">BMI(kg/m*m):</p>
+                            <p class="bmi-number font-bold text-lg">00.00</p>
+                        </div>
+                        <button
+                            type="button"
+                            class="bmi-edit font-bold text-blue-600 active:text-blue-400"
+                        >
+                            EDIT
+                        </button>
+                    </header>
+                    <main class="mt-14 px-2">
+                        <table class="h-14 w-[100%] overflow-hidden">
+                            <div class="fixed -translate-y-[0.4rem] translate-x-[4.5rem] h-[4rem] w-1 rounded-lg bg-black">
+                                <p class="title-chart fixed -top-6 -left-[1.1rem] font-bold">00.00</p>
+                            </div>
+                            <td class="px-0.5">
+                                <p class="fixed translate-y-7 -translate-x-[0.1rem] text-[0.7rem]">15</p>
+                            </td>
+                            <th class="bg-[#b0d3cd] w-[6%]"></th>
+                            <td class="px-0.5">
+                                <p class="fixed translate-y-7 -translate-x-[0.3rem] text-[0.7rem]">16</p>
+                            </td>
+                            <th class="bg-[#4a6c94] w-[10%]"></th>
+                            <td class="px-0.5">
+                                <p class="fixed translate-y-7 -translate-x-[0.6rem] text-[0.7rem]">18.5</p>
+                            </td>
+                            <th class="bg-[#74dd78] w-[26%]"></th>
+                            <td class="px-0.5">
+                                <p class="fixed translate-y-7 -translate-x-[0.3rem] text-[0.7rem]">25</p>
+                            </td>
+                            <th class="bg-[#dce683] w-[20%]"></th>
+                            <td class="px-0.5">
+                                <p class="fixed translate-y-7 -translate-x-[0.3rem] text-[0.7rem]">30</p>
+                            </td>
+                            <th class="bg-[#feb546] w-[20%]"></th>
+                            <td class="pxf-0.5">
+                                <p class="fixed translate-y-7 -translate-x-[0.3rem] text-[0.7rem]">35</p>
+                            </td>
+                            <th class="bg-[#ea444e] w-[20%]">
+                                <td class="px-0.5">
+                                    <p class="fixed translate-y-7 -translate-x-[0.6rem] text-[0.7rem]">40</p>
+                                </td>
+                            </th>
+                        </table>
+                        <p class="bmi-position mt-10 text-center"> </p>
+                    </main>
+                    <hr class="w-full h-0.5 mt-5 bg-slate-200" />
+                    <footer
+                        class="bmi-footer flex flex-col justify-between px-2 mt-8 space-y-11"
+                    >
+                        <div
+                            class="weight-container flex justify-between items-center"
+                        >
+                            <p class="font-bold">Weight</p>
+                            <p class="weight-number text-slate-600">KG</p>
+                        </div>
+                        <div
+                            class="height-container flex justify-between items-center"
+                        >
+                            <p class="font-bold">Height</p>
+                            <p class="height-number text-slate-600">CM</p>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            <div
+                class="panel-edit hidden absolute top-1/2 h-80 w-[23rem] px-7 py-3 space-y-7 rounded-md overflow-hidden bg-white z-20"
+            >
+                <p class="weight-titile mt-3 font-bold text-2xl">Weight</p>
+                <div class="select-weight flex justify-between items-end">
+                    <input
+                        type="text"
+                        name="weight"
+                        id=""
+                        placeholder="00.00 KG"
+                        class="weight py-1 bg-transparent outline-none border-b border-[#828282] text-lg placeholder-[#828282] text-[#828282]"
+                    />
+                    <button
+                        type="button"
+                        class="kg h-9 w-24 ml-7 border border-[#828282] rounded-sm text-lg text-[#828282] text-center click-formula "
+                    >
+                        KG
+                    </button>
+                    <button
+                        type="button"
+                        class="lb h-9 w-24 ml-2 border border-[#828282] rounded-sm text-lg text-[#828282] text-center"
+                    >
+                        LB
+                    </button>
+                </div>
+                <p class="weight-titile font-bold text-2xl">Height</p>
+                <div class="select-weight flex justify-between items-end">
+                    <input
+                        type="text"
+                        name="weight"
+                        id=""
+                        placeholder="00.00 KG"
+                        class="height py-1 bg-transparent outline-none border-b border-[#828282] text-lg placeholder-[#828282] text-[#828282]"
+                    />
+                    <button
+                        type="button"
+                        class="cm h-9 w-24 ml-7 border border-[#828282] rounded-sm text-lg text-[#828282] text-center"
+                    >
+                        CM
+                    </button>
+                    <button
+                        type="button"
+                        class="in h-9 w-24 ml-2 border border-[#828282] rounded-sm text-lg text-[#828282] text-center"
+                    >
+                        IN
+                    </button>
+                </div>
+                <div class="flex items-center justify-end space-x-7">
+                    <button
+                        type="button"
+                        class="panel-cancel font-bold text-blue-600 active:text-blue-400"
+                    >
+                        CANCEL
+                    </button>
+                    <button
+                        type="button"
+                        class="panel-save font-bold text-blue-600 active:text-blue-400"
+                    >
+                        SAVE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

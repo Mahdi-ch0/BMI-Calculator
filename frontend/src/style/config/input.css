@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "OpenSans";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../../../public/font/Open_Sans/static/OpenSans-Regular.ttf");
+}
+
+@layer base {
+    * {
+        @apply font-OpenSans select-none list-none dark:text-white;
+    }
+
+    .click-formula {
+        @apply bg-blue-600 text-white !important;
+    }
+}
